@@ -72,6 +72,13 @@ nav li a {
   text-align: center;
 }
 
+.leaflet-control {
+  background-color: white;
+  color: var(--main-bg-color);
+  margin: 1rem;
+  padding: 1rem;
+}
+
 /* leaflet classes */
 .leaflet-popup-content-wrapper {
   border-radius: 5px;

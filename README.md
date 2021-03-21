@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Phlo Technical Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I create the application using [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Note: this was my first time using React, so feel free to point me any possible improvements/best practices that I could have missed :)
+It was definitely a good learning experience ony my side.
 
-In the project directory, you can run:
+## Get the app running
 
-### `npm start`
+In the project directory, run: `npm run build`.
+This will create the build folder with all the static assets.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Then run `npm start`
+This will start the Express server which should serve the static assets on localhost:8080/.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I didn't consider using Nodemon or something similar to reload the server as there is no much logic in there anyway.
 
-### `npm test`
+For development, I used the CRA dev-server to have hot-reloading.
+Just needed to run npm run build to get the static assets in the build folder after.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## What could be improved
 
-### `npm run build`
+### Server side logic
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I didn't think it was part of the spec to develop a full end-to-end app with a database for storage, extensive rest API design ect.
+Definitely a lot more work would be needed to implement that: sending emails, not allowing conflicting appointments at the same time and much more.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Design
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I used some styling from Phlo website and I didn't spend much time on it. I could probably make it better with a little more time.
 
-### `npm run eject`
+### Date Time Picker
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I didn't wanted to spend quite some time looking for a date time picker so I choose one quickly to get going. Further investigations and UI tests could be done. A custom solution would required more dev time.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Accessiblity and more browser testing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+For production, more developer testing would be required: accessibility by going through the user flow using keyboard only for example.
+I didn't spend time testing in different browsers, only used Chrome and a few times Edge.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Better user experience
 
-## Learn More
+Right now, the app request the user to share his location. We could imagine that a user could be asked to enter his postcode if the permission was refused. In that case we could use public open API's for geocoding like this one: http://api.getthedata.com/postcode/g11eb or even Google's one: https://developers.google.com/maps/documentation/geocoding/overview.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Thank you for you time!

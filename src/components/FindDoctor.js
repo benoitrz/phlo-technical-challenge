@@ -14,6 +14,7 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import customIcon from './../images/doctor-icon.png';
 import usePlacesApi from '../hooks/usePlacesApi';
+import DoctorPopupTemplate from './DoctorPopupTemplate';
 
 const defaultMarker = L.icon({
   iconUrl: icon,
@@ -102,6 +103,22 @@ const FindDoctor = () => {
               <Tooltip>{location.name}</Tooltip>
             </Marker>
           ))}
+        {activeMarker && (
+          <Popup
+            position={[
+              activeMarker.geometry.location.lat,
+              activeMarker.geometry.location.lng,
+            ]}
+            onClose={() => {
+              setActiveMarker(null);
+            }}
+          >
+            <DoctorPopupTemplate
+              place={activeMarker}
+              onButtonClick={() => console.log("book appointment clicked")}
+            ></DoctorPopupTemplate>
+          </Popup>
+        )}
         <MapCustomControl position="bottomleft">
           {locationError && <h2>Couldn't retrieve your location...</h2>}
           {loadingLocations && <h2>Searching for nearby doctors ...</h2>}

@@ -1,25 +1,77 @@
-import logo from './logo.svg';
+import { Switch, Route, NavLink } from 'react-router-dom';
+import FindDoctor from './components/FindDoctor';
+import Services from './components/Services';
+import About from './components/About';
+import Emergency from './components/Emergency';
+import CarePlans from './components/CarePlans';
+import NotFound from './components/NotFound';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <nav>
+        <NavLink
+          to="/"
+          title="Doc.ly"
+          className="logo"
+          activeClassName="selected"
         >
-          Learn React
-        </a>
-      </header>
+          Doc.ly
+        </NavLink>
+        <ul>
+          <li>
+            <NavLink
+              to="/find-a-doctor"
+              title="Find a doctor"
+              activeClassName="selected"
+            >
+              Find a Doctor
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/services" title="Services" activeClassName="selected">
+              Services
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/care-plans"
+              title="Care Plans"
+              activeClassName="selected"
+            >
+              Care Plans
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" title="About" activeClassName="selected">
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/emergency"
+              title="Emergency"
+              activeClassName="selected"
+            >
+              Emergency
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+      <main>
+        <Switch>
+          <Route exact path="/" component={FindDoctor} />
+          <Route exact path="/find-a-doctor" component={FindDoctor} />
+          <Route exact path="/services" component={Services} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/emergency" component={Emergency} />
+          <Route exact path="/care-plans" component={CarePlans} />
+          <Route component={NotFound} />
+        </Switch>
+      </main>
     </div>
   );
-}
+};
 
 export default App;

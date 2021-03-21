@@ -12,10 +12,17 @@ import useLocation from '../hooks/useLocation';
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import customIcon from './../images/doctor-icon.png';
+import usePlacesApi from '../hooks/usePlacesApi';
 
 const defaultMarker = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
+});
+
+const doctorIcon = L.icon({
+  iconUrl: customIcon,
+  iconRetinaUrl: customIcon,
 });
 
 // Classes used by Leaflet to position controls.
@@ -50,7 +57,12 @@ const FindDoctor = () => {
   const height = "400px";
   const zoomLevel = 15;
   const [mapCenter, setMapCenter] = useState([51.5074, 0.1278]); // London coordinates by default
-  const { location, error } = useLocation();
+  const [activeMarker, setActiveMarker] = useState(null);
+  const { location, locationError } = useLocation();
+  const { locations, loadingLocations, locationsError } = usePlacesApi(
+    location.lat,
+    location.lng
+  );
 
   useEffect(() => {
     if (location.lat) {
@@ -71,8 +83,31 @@ const FindDoctor = () => {
             <Popup>This is your current location.</Popup>
           </Marker>
         )}
+        {locations &&
+          locations.map((location) => (
+            <Marker
+              key={location.place_id}
+              icon={doctorIcon}
+              position={[
+                location.geometry.location.lat,
+                location.geometry.location.lng,
+              ]}
+              // onClick doesn't work anymore in react-leaflet v3
+              eventHandlers={{
+                click: () => {
+                  setActiveMarker(location);
+                },
+              }}
+            >
+              <Tooltip>{location.name}</Tooltip>
+            </Marker>
+          ))}
         <MapCustomControl position="bottomleft">
-          {error && <h2>Couldn't retrieve your location...</h2>}
+          {locationError && <h2>Couldn't retrieve your location...</h2>}
+          {loadingLocations && <h2>Searching for nearby doctors ...</h2>}
+          {locationsError && (
+            <h2>Couldn't find any nearby doctors, sorry ...</h2>
+          )}
         </MapCustomControl>
         <ChangeMapView coords={mapCenter} />
       </MapContainer>

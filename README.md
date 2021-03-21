@@ -10,13 +10,12 @@ It was definitely a good learning experience ony my side.
 In the project directory, run: `npm run build`.
 This will create the build folder with all the static assets.
 
-Then run `npm start`
+Then run `npm start`.
 This will start the Express server which should serve the static assets on localhost:8080/.
 
 I didn't consider using Nodemon or something similar to reload the server as there is no much logic in there anyway.
 
 For development, I used the CRA dev-server to have hot-reloading.
-Just needed to run npm run build to get the static assets in the build folder after.
 
 ## What could be improved
 

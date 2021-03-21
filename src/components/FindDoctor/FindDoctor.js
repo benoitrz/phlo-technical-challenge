@@ -55,7 +55,7 @@ const FindDoctor = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    if (location.lat) {
+    if (location.lat && location.lng) {
       setMapCenter([location.lat, location.lng]);
     }
   }, [location]);

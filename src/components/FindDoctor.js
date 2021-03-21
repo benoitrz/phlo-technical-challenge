@@ -12,12 +12,15 @@ import useLocation from '../hooks/useLocation';
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
 import customIcon from './../images/doctor-icon.png';
 import usePlacesApi from '../hooks/usePlacesApi';
 import DoctorPopupTemplate from './DoctorPopupTemplate';
+import Modal from './Modal';
 
 const defaultMarker = L.icon({
   iconUrl: icon,
+  iconRetinaUrl: iconRetina,
   shadowUrl: iconShadow,
 });
 
@@ -64,6 +67,7 @@ const FindDoctor = () => {
     location.lat,
     location.lng
   );
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (location.lat) {
@@ -115,7 +119,7 @@ const FindDoctor = () => {
           >
             <DoctorPopupTemplate
               place={activeMarker}
-              onButtonClick={() => console.log("book appointment clicked")}
+              onButtonClick={() => setShowModal(true)}
             ></DoctorPopupTemplate>
           </Popup>
         )}
@@ -128,6 +132,13 @@ const FindDoctor = () => {
         </MapCustomControl>
         <ChangeMapView coords={mapCenter} />
       </MapContainer>
+      {showModal && (
+        <Modal
+          show={showModal}
+          doctor={activeMarker}
+          onClose={() => setShowModal(false)}
+        ></Modal>
+      )}
     </div>
   );
 };

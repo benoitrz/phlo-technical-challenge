@@ -1,0 +1,68 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(17, 17, 17, 0.2);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(34, 34, 34);
+}
+
+.booking-modal {
+  display: flex;
+}
+
+.modal-panel {
+  width: 50%;
+  padding: 1.5rem;
+}
+
+.appointment-form {
+  background-color: #f0f0f0;
+}
+
+.form-label {
+  line-height: 26px;
+  font-weight: bold;
+}
+
+.form-input {
+  padding: 5px;
+  width: calc(100% - 1rem);
+}
+
+.date-time-picker-input {
+  width: 100%;
+}
+
+::placeholder {
+  font-size: 12px;
+}
+
+.submit:disabled {
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.form-group {
+  margin-top: 0.25rem;
+}
+
+.submit {
+  margin-top: 1rem;
+  width: 75%;
+}
+
+.confirmation {
+  text-align: center;
+  padding: 2rem;
+}

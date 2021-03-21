@@ -1,11 +1,11 @@
-import { Switch, Route, NavLink } from 'react-router-dom';
-import FindDoctor from './components/FindDoctor';
-import Services from './components/Services';
-import About from './components/About';
-import Emergency from './components/Emergency';
-import CarePlans from './components/CarePlans';
-import NotFound from './components/NotFound';
-import './App.css';
+import { Switch, Route, NavLink } from "react-router-dom";
+import FindDoctor from "./components/FindDoctor/FindDoctor";
+import Services from "./components/Services";
+import About from "./components/About";
+import Emergency from "./components/Emergency";
+import CarePlans from "./components/CarePlans";
+import NotFound from "./components/NotFound";
+import "./App.css";
 
 const App = () => {
   return (

@@ -1,5 +1,5 @@
 const CarePlans = () => {
-  return <div>Care Plans</div>;
+  return <div className="static-page">Care Plans</div>;
 };
 
 export default CarePlans;

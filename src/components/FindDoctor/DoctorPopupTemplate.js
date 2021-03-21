@@ -1,6 +1,6 @@
 const DoctorPopupTemplate = ({ place, onButtonClick }) => {
   return (
-    <div style={{ textAlign: "center" }}>
+    <div className="popup-template">
       <h2>{place.name}</h2>
       <p>{place.vicinity}</p>
       {place.rating && (
@@ -8,7 +8,9 @@ const DoctorPopupTemplate = ({ place, onButtonClick }) => {
           {place.rating} &#9733; ({place.user_ratings_total} ratings)
         </p>
       )}
-      <button onClick={() => onButtonClick()}>Book Appointment</button>
+      <button onClick={() => onButtonClick()} className="main-button">
+        Book Appointment
+      </button>
     </div>
   );
 };

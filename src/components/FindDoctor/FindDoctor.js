@@ -1,4 +1,4 @@
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
 import {
   MapContainer,
   TileLayer,
@@ -6,44 +6,29 @@ import {
   Tooltip,
   Popup,
   useMap,
-} from 'react-leaflet';
-import { useEffect, useState } from 'react';
-import useLocation from '../hooks/useLocation';
-import L from 'leaflet';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
-import customIcon from './../images/doctor-icon.png';
-import usePlacesApi from '../hooks/usePlacesApi';
-import DoctorPopupTemplate from './DoctorPopupTemplate';
-import Modal from './Modal';
+} from "react-leaflet";
+import { useEffect, useState } from "react";
+import useLocation from "../../hooks/useLocation";
+import L from "leaflet";
+import icon from "leaflet/dist/images/marker-icon.png";
+import customIcon from "./../../images/doctor-icon.png";
+import usePlacesApi from "../../hooks/usePlacesApi";
+import DoctorPopupTemplate from "./DoctorPopupTemplate";
+import Modal from "./Modal";
 
-const defaultMarker = L.icon({
-  iconUrl: icon,
-  iconRetinaUrl: iconRetina,
-  shadowUrl: iconShadow,
-});
+const defaultMarker = L.icon({ iconUrl: icon });
 
 const doctorIcon = L.icon({
   iconUrl: customIcon,
   iconRetinaUrl: customIcon,
+  iconSize: [30, 30],
 });
 
-// Classes used by Leaflet to position controls.
-const POSITION_CLASSES = {
-  bottomleft: "leaflet-bottom leaflet-left",
-  bottomright: "leaflet-bottom leaflet-right",
-  topleft: "leaflet-top leaflet-left",
-  topright: "leaflet-top leaflet-right",
-};
-
+// could be made more generic to handle all posible positions
 const MapCustomControl = (props) => {
-  const { position, containerProps, children } = props;
   return (
-    <div className={POSITION_CLASSES[position]}>
-      <div className="leaflet-control" {...containerProps}>
-        {children}
-      </div>
+    <div className="leaflet-bottom leaflet-left">
+      <div className="leaflet-control">{props.children}</div>
     </div>
   );
 };
@@ -58,8 +43,8 @@ const ChangeMapView = ({ coords }) => {
 };
 
 const FindDoctor = () => {
-  const height = "400px";
-  const zoomLevel = 15;
+  const height = "75vh";
+  const zoomLevel = 13;
   const [mapCenter, setMapCenter] = useState([51.5074, 0.1278]); // London coordinates by default
   const [activeMarker, setActiveMarker] = useState(null);
   const { location, locationError } = useLocation();
@@ -123,7 +108,7 @@ const FindDoctor = () => {
             ></DoctorPopupTemplate>
           </Popup>
         )}
-        <MapCustomControl position="bottomleft">
+        <MapCustomControl>
           {locationError && <h2>Couldn't retrieve your location...</h2>}
           {loadingLocations && <h2>Searching for nearby doctors ...</h2>}
           {locationsError && (

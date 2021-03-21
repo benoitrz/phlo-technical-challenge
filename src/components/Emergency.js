@@ -1,5 +1,5 @@
 const Emergency = () => {
-  return <div>Emergency</div>;
+  return <div className="static-page">Emergency</div>;
 };
 
 export default Emergency;

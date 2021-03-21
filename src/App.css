@@ -1,8 +1,13 @@
+:root {
+  --main-bg-color: #1c1c3b;
+  --main-button-color: #e52963;
+}
+
 body {
-  margin-left: 5rem;
-  margin-right: 5rem;
-  font-family: "Roboto", sans-serif;
+  margin: 0 5rem 0 5rem;
   font-size: 14px;
+  background-color: var(--main-bg-color);
+  font-family: "Lato", sans-serif;
 }
 
 nav {
@@ -21,11 +26,53 @@ nav li {
   margin: 20px;
 }
 
-.logo, nav li a {
-  color: black;
+nav li a {
+  color: #81d0d4;
   text-decoration: none;
+}
+
+.logo {
+  color: white !important;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 .selected {
   font-weight: bold;
+  color: #ea2866;
+}
+
+.static-page {
+  color: white;
+}
+
+.main-button {
+  width: 100%;
+  font-weight: 700;
+  line-height: 2rem;
+  background: var(--main-button-color);
+  border-radius: 0.25rem;
+  color: #fff;
+  display: inline-block;
+  height: 2.5rem;
+  min-height: 2.5rem;
+  overflow: hidden;
+  padding: 0 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  border: 0;
+}
+
+.main-button:hover {
+  opacity: 0.9;
+}
+
+.popup-template {
+  text-align: center;
+}
+
+/* leaflet classes */
+.leaflet-popup-content-wrapper {
+  border-radius: 5px;
 }

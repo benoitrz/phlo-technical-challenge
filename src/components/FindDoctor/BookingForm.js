@@ -83,6 +83,9 @@ const BookingForm = ({ doctor, submit }) => {
               type="number"
               placeholder="This is the 10-digit number unique to you"
               value={nhsNumber}
+              min="1000000000"
+              max="9999999999"
+              step="1"
               onChange={(e) => setNhsNumber(e.target.value)}
               className="form-input"
             />

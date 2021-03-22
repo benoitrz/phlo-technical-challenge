@@ -42,6 +42,7 @@
 
 .date-time-picker-input {
   width: 100%;
+  background-color: white;
 }
 
 ::placeholder {

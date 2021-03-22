@@ -21,7 +21,7 @@ This will create the build folder with all the static assets.
 Insert your Google Places API key in _/server/config.js_.
 
 Then run `npm start`.
-This will start the Express server which should serve the static assets on localhost:8080/.
+This will start the Express server which should serve the static assets on http://localhost:8080/.
 
 I didn't consider using Nodemon or something similar to reload the server as there is no much logic in there anyway.
 

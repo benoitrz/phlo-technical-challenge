@@ -19,6 +19,8 @@ const appRouter = (app) => {
     if (!lat) return res.status(400).send("'lat' parameter is missing.");
     if (!lng) return res.status(400).send("'lng' parameter is missing.");
     if (!radius) return res.status(400).send("'radius' parameter is missing.");
+    if (!config.googlePlacesApiKey)
+      return res.status(500).send("'Api key' is not configured.");
 
     const response = await axios.get(
       `https://maps.googleapis.com/maps/api/place/search/json?location=${lat},${lng}&radius=${radius}&types=doctor&key=${config.googlePlacesApiKey}`

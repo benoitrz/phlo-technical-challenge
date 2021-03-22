@@ -11,12 +11,18 @@ import { useEffect, useState } from "react";
 import useLocation from "../../hooks/useLocation";
 import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import customIcon from "./../../images/doctor-icon.png";
 import usePlacesApi from "../../hooks/usePlacesApi";
 import DoctorPopupTemplate from "./DoctorPopupTemplate";
 import Modal from "./Modal";
 
-const defaultMarker = L.icon({ iconUrl: icon });
+const defaultMarker = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+  iconSize: [24, 36],
+  iconAnchor: [12, 36],
+});
 const doctorIcon = L.icon({
   iconUrl: customIcon,
   iconRetinaUrl: customIcon,

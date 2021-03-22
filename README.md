@@ -47,7 +47,7 @@ I didn't wanted to spend quite some time looking for a date time picker so I cho
 
 For production, more developer testing would be required: accessibility by going through the user flow using keyboard only for example.
 
-I tried testing the app in different browsers: Chrome, Edge and Firefox. I am not using a Mac so not thats straightforward to test Safari for me.
+I tried testing the app in different browsers: Chrome, Edge and Firefox. I am not using a Mac so not it's not straightforward to test on Safari for me.
 
 ### Better user experience
 
@@ -55,8 +55,14 @@ Right now, the app requests the user to share his location. We could imagine tha
 
 In that case we could use public open API's for geocoding like this one: http://api.getthedata.com/postcode/g11eb or even Google's one: https://developers.google.com/maps/documentation/geocoding/overview.
 
+Also the booking form could be improved, like making required fields more obvious.
+
 ### More error handling
 
 I tried to handle a few error cases, but haven't done it for all the possible ones. Needed to be production ready.
+
+### Tests
+
+I didn't took the time to write any tests and as I never wrote unit tests for React before, that would be another thing to tackle. I guess the simple components will be easy to implement but the main one displaying the map will be a bit more complex to setup.
 
 # Thank you for you time!

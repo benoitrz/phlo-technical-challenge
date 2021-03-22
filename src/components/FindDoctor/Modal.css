@@ -48,17 +48,13 @@
   font-size: 12px;
 }
 
-.submit:disabled {
-  pointer-events: none;
-  opacity: 0.3;
-}
-
-.loading {
-  pointer-events: none;
-}
-
 .form-group {
   margin-top: 0.25rem;
+}
+
+.confirmation-message {
+  text-align: center;
+  padding: 2rem;
 }
 
 .submit {
@@ -66,7 +62,11 @@
   width: 75%;
 }
 
-.confirmation-message {
-  text-align: center;
-  padding: 2rem;
+.submit:disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.loading {
+  pointer-events: none;
 }

@@ -86,4 +86,5 @@ nav li a {
 /* leaflet classes */
 .leaflet-popup-content-wrapper {
   border-radius: 5px;
+  max-width: 200px;
 }

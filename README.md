@@ -1,5 +1,11 @@
 # Phlo Technical Challenge
 
+![Map with markers and opened popup](screenshots/docly-popup.png)
+
+![Booking form dialog](screenshots/docly-booking-form.png)
+
+![Booking confirmation dialog](screenshots/docly-confirmation.png)
+
 I create the application using [Create React App](https://github.com/facebook/create-react-app).
 
 **Note**: this was my first time using React, so feel free to point me any possible improvements/best practices that I could have missed :)

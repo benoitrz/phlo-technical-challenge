@@ -27,7 +27,7 @@ const BookingConfirmation = ({ doctor, details }) => {
         <h3>An email confirmation has been sent to your inbox!</h3>
       ) : (
         <div>
-          <p>Didn't receive an email?</p>
+          <h3>Didn't receive an email?</h3>
           {sending ? (
             <button className="main-button loading">
               <span>Sending email...</span>

@@ -1,13 +1,14 @@
 :root {
   --main-bg-color: #1c1c3b;
   --main-button-color: #e52963;
+  --selected-nav-link-color: #ea2866;
 }
 
 body {
   margin: 0 5rem 0 5rem;
-  font-size: 14px;
   background-color: var(--main-bg-color);
   font-family: "Lato", sans-serif;
+  font-size: 14px;
 }
 
 nav {
@@ -39,7 +40,7 @@ nav li a {
 
 .selected {
   font-weight: bold;
-  color: #ea2866;
+  color: var(--selected-nav-link-color);
 }
 
 .static-page {
@@ -76,6 +77,9 @@ nav li a {
   background-color: white;
   color: var(--main-bg-color);
   margin: 1rem;
+}
+
+.leaflet-map-info {
   padding: 1rem;
 }
 

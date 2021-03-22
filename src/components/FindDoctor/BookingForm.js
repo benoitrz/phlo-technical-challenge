@@ -92,7 +92,7 @@ const BookingForm = ({ doctor, submit }) => {
           <input
             type="submit"
             value="Booking your appointment..."
-            className="submit main-button"
+            className="submit main-button loading"
           />
         ) : (
           <input

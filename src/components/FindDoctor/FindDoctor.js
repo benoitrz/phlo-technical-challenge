@@ -17,7 +17,6 @@ import DoctorPopupTemplate from "./DoctorPopupTemplate";
 import Modal from "./Modal";
 
 const defaultMarker = L.icon({ iconUrl: icon });
-
 const doctorIcon = L.icon({
   iconUrl: customIcon,
   iconRetinaUrl: customIcon,
@@ -26,9 +25,12 @@ const doctorIcon = L.icon({
 
 // could be made more generic to handle all posible positions
 const MapCustomControl = (props) => {
+  if (!props.show) return null;
   return (
     <div className="leaflet-bottom leaflet-left">
-      <div className="leaflet-control">{props.children}</div>
+      <div className="leaflet-control">
+        <div className="leaflet-map-info">{props.children}</div>
+      </div>
     </div>
   );
 };
@@ -67,7 +69,7 @@ const FindDoctor = () => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {location.lat && (
+        {location.lat && location.lng && (
           <Marker icon={defaultMarker} position={[location.lat, location.lng]}>
             <Tooltip>This is your current location.</Tooltip>
             <Popup>This is your current location.</Popup>
@@ -108,7 +110,9 @@ const FindDoctor = () => {
             ></DoctorPopupTemplate>
           </Popup>
         )}
-        <MapCustomControl>
+        <MapCustomControl
+          show={locationError || loadingLocations || locationsError}
+        >
           {locationError && <h2>Couldn't retrieve your location...</h2>}
           {loadingLocations && <h2>Searching for nearby doctors ...</h2>}
           {locationsError && (

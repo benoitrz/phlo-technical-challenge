@@ -13,7 +13,7 @@ const BookingConfirmation = ({ doctor, details }) => {
   };
 
   return (
-    <div className="confirmation">
+    <div className="confirmation-message">
       <h2>Appointment booked</h2>
       <p>Thanks, you've made a booking with...</p>
       <h3>{doctor.name}</h3>
@@ -28,13 +28,15 @@ const BookingConfirmation = ({ doctor, details }) => {
       ) : (
         <div>
           <p>Didn't receive an email?</p>
-          <button onClick={sendEmail} className="main-button">
-            {sending ? (
+          {sending ? (
+            <button className="main-button loading">
               <span>Sending email...</span>
-            ) : (
+            </button>
+          ) : (
+            <button onClick={sendEmail} className="main-button">
               <span>Resend email</span>
-            )}
-          </button>
+            </button>
+          )}
         </div>
       )}
     </div>

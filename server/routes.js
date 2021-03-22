@@ -8,8 +8,11 @@ const delay = (timeout) =>
 const generateGuid = () => crypto.randomBytes(16).toString("hex");
 
 const appRouter = (app) => {
-  // Google Places Search API (Place Details is also available for individual result)
-  // We could imagine using different providers as well
+  /* 
+    Google Places Search API (Place Details is also available for individual result)
+     We could imagine using different providers as well
+     Also we only fetch the first page of results at the moment
+  */
   app.get("/doctors", async (req, res) => {
     const { lat, lng, radius } = req.query;
 
@@ -31,6 +34,8 @@ const appRouter = (app) => {
 
   app.post("/confirmations", async (req, res) => {
     const { appointmentId } = req.query;
+    if (!appointmentId)
+      return res.status(400).send("'appointmentId' parameter is missing.");
     // TODO: this could integrate with an email system
     await delay(1000);
     res

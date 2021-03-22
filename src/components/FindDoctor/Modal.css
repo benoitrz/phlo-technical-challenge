@@ -53,6 +53,10 @@
   opacity: 0.3;
 }
 
+.loading {
+  pointer-events: none;
+}
+
 .form-group {
   margin-top: 0.25rem;
 }
@@ -62,7 +66,7 @@
   width: 75%;
 }
 
-.confirmation {
+.confirmation-message {
   text-align: center;
   padding: 2rem;
 }

@@ -12,6 +12,8 @@ Clone the repo and run the usual `npm install`.
 In the project directory, run: `npm run build`.
 This will create the build folder with all the static assets.
 
+Insert your Google Places API key in _/server/config.js_.
+
 Then run `npm start`.
 This will start the Express server which should serve the static assets on localhost:8080/.
 
